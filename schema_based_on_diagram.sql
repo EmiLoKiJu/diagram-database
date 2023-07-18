@@ -38,3 +38,10 @@ CREATE TABLE medical_histories_MTM_treatments (
 	medical_history_id int REFERENCES medical_histories(id),
 	treatmets_id int REFERENCES treatments(id)
 )
+
+CREATE INDEX idx_medical_histories_patient_id ON medical_histories(patient_id);
+CREATE INDEX idx_invoices_medical_history_id ON invoices(medical_history_id);
+CREATE INDEX idx_invoice_items_invoice_id ON invoice_items(invoice_id);
+CREATE INDEX idx_invoice_items_treatment_id ON invoice_items(treatment_id);
+CREATE INDEX idx_mh_MTM_t_medical_history_id ON medical_histories_MTM_treatments(medical_history_id);
+CREATE INDEX idx_mh_MTM_t_treatmets_id ON medical_histories_MTM_treatments(treatmets_id);
